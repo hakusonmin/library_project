@@ -18,8 +18,8 @@
     <nav>
       <ul>
         <li><a href="{{ route('admin.index') }}">管理画面へ</a></li>
-        <li><a href="{{ route('admin.movies.index') }}'">図書館一覧</a></li>
-        <li><a href="{{ route('admin.halls.index') }}'">My登録座席一覧</a></li>
+        <li><a href="{{ route('admin.halls.index') }}'">図書館一覧</a></li>
+        <li><a href="{{ route('admin.registrations.index') }}'">My登録座席一覧</a></li>
       </ul>
     </nav>
   </header>
