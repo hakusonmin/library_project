@@ -1,0 +1,73 @@
+:root {
+    --black: rgb(67, 67, 67);
+}
+
+a {
+    text-decoration: none;
+}
+
+.error, .message{
+    position: absolute; /* 親要素を基準に絶対配置 */
+    top: 200px;             /* 上部に配置 */
+    left: 50%;          /* 左端を中央に */
+    transform: translateX(-50%); /* 水平方向に中央寄せ */
+    background-color: var(--black); /* 背景色 */
+    color: rgb(233, 229, 222);       /* 文字色 */
+    text-align: center; /* テキスト中央揃え */
+    padding: 16px;      /* 内側の余白 */
+    border-radius: 8px; /* 角丸 */
+    width: 40%;         /* 幅を50% */
+}
+
+header {
+    max-width: 960px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 4%;
+    height: 120px;
+    background-color: var(--black);
+}
+
+.line {
+    height: 40px;
+    background-color: rgb(129, 129, 129);
+}
+
+header h2 a {
+    color: rgb(195, 195, 195);
+    font-weight: 100;
+    font-size: 22px;
+}
+
+header ul {
+    display: flex;
+    padding: 10px 0;
+    align-items: center;
+}
+
+header ul li {
+    font-size: 1.1rem;
+    margin-left: 30px;
+    list-style: none;
+}
+
+header ul li a {
+    color: rgb(195, 195, 195);
+}
+
+footer {
+    height: 120px;
+}
+
+@media screen and (max-width: 600px) {
+    .site-title {
+        margin-top: 20px;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+    }
+}
