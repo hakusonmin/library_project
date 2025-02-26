@@ -11,9 +11,11 @@ class SheetController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $floor_id = $request->query('floor_id');
+        $sheets = Sheet::where('floor_id', $floor_id)->get();
+        return view('web.user.sheet.index', compact('sheets'));
     }
 
     /**
