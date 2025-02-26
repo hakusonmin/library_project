@@ -10,6 +10,12 @@ Route::prefix('admin')
     ->middleware('auth:admin')
     ->name('admin.')
     ->group(function () {
+
+        //管理者ダッシュボードへのルーティング
+        Route::get('/', function () {
+            return view('web.admin.index'); 
+        })->name('index');
+
         Route::resource('floors', FloorController::class);
         Route::resource('halls', HallController::class);
         Route::resource('sheets', SheetController::class);

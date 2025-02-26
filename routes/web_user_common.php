@@ -9,6 +9,12 @@ Route::prefix('user')
     ->middleware('auth:user')
     ->name('user.')
     ->group(function () {
+
+        //ユーザーダッシュボードへのルーティング
+        Route::get('/', function () {
+            return view('web.user.index');
+        })->name('index');
+
         Route::resource('floors', FloorController::class);
         Route::resource('halls', HallController::class);
         Route::resource('sheets', SheetController::class);
