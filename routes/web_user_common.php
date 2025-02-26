@@ -6,7 +6,7 @@ use App\Http\Controllers\User\RegistrationController;
 use App\Http\Controllers\User\SheetController;
 
 Route::prefix('user')
-    ->middleware('auth:user')
+    ->middleware('auth')//userはデフォルトなので auth:userとしてはいけない
     ->name('user.')
     ->group(function () {
 
