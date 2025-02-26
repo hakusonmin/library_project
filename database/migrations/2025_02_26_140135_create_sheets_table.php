@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sheets', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255)->unique();
+            $table->string('name', 255);
             $table->boolean('is_reserved');
             $table->foreignId('floor_id');
             $table->timestamps();
