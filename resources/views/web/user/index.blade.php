@@ -11,28 +11,28 @@
 
         <div class="card">
           <a href="{{ route('user.halls.index') }}">
-            <img class="image" src="{{ asset('./../storage/img/Thumbnail.png') }}">
+            <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
             <div class="card-title">「図書館一覧」</div>
           </a>
         </div>
 
         <div class="card">
           <a href="{{ route('user.floors.index') }}">
-            <img class="image" src="{{ asset('./../storage/img/Thumbnail.png') }}">
+            <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
             <div class="card-title">「階一覧」</div>
           </a>
         </div>
 
         <div class="card">
             <a href="{{ route('user.sheets.index') }}">
-              <img class="image" src="{{ asset('./../storage/img/Thumbnail.png') }}">
+              <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
               <div class="card-title">「席一覧」</div>
             </a>
           </div>
 
         <div class="card">
           <a href="{{ route('user.halls.index') }}">
-            <img class="image" src="{{ asset('./../storage/img/Thumbnail.png') }}">
+            <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
             <div class="card-title">「予約一覧」</div>
           </a>
         </div>
