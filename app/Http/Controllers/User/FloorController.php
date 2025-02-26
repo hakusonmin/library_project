@@ -11,9 +11,11 @@ class FloorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $hall_id = $request->query('hall_id');
+        $floors = Floor::where('hall_id', $hall_id)->get();
+        return view('web.user.floor.index', compact('floors'));
     }
 
     /**
