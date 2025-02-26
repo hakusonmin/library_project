@@ -13,7 +13,8 @@ class HallController extends Controller
      */
     public function index()
     {
-        //
+        $halls = Hall::all();
+        return view('web.user.hall.index', compact('halls'));
     }
 
     /**

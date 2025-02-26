@@ -1,5 +1,5 @@
 @push('styles')
-  <link rel="stylesheet" href="{{ asset('./css/admin/index.css') }}">
+  <link rel="stylesheet" href="{{ asset('./css/user/index.css') }}">
 @endpush
 
 @extends('layouts.layouts')
@@ -10,28 +10,28 @@
       <div class="card-container">
 
         <div class="card">
-          <a href="{{ route('admin.halls.index') }}">
+          <a href="{{ route('user.halls.index') }}">
             <img class="image" src="{{ asset('./../storage/img/Thumbnail.png') }}">
             <div class="card-title">「図書館一覧」</div>
           </a>
         </div>
 
         <div class="card">
-          <a href="{{ route('admin.floors.index') }}">
+          <a href="{{ route('user.floors.index') }}">
             <img class="image" src="{{ asset('./../storage/img/Thumbnail.png') }}">
             <div class="card-title">「階一覧」</div>
           </a>
         </div>
 
         <div class="card">
-            <a href="{{ route('admin.sheets.index') }}">
+            <a href="{{ route('user.sheets.index') }}">
               <img class="image" src="{{ asset('./../storage/img/Thumbnail.png') }}">
               <div class="card-title">「席一覧」</div>
             </a>
           </div>
 
         <div class="card">
-          <a href="{{ route('admin.halls.index') }}">
+          <a href="{{ route('user.halls.index') }}">
             <img class="image" src="{{ asset('./../storage/img/Thumbnail.png') }}">
             <div class="card-title">「予約一覧」</div>
           </a>
