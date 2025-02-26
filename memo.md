@@ -11,3 +11,5 @@ php artisan migrate
 git init 
 あとはいつもの手順
 
+今回のポート:
+7200番
