@@ -18,8 +18,8 @@
     <nav>
       <ul>
         <li><a href="{{ route('admin.index') }}"管理者ダッシュボードへ</a></li>
-        <li><a href="{{ route('admin.halls.index') }}'">図書館一覧</a></li>
-        <li><a href="{{ route('user.index') }}'">ユーザー画面へ</a></li>
+        <li><a href="{{ route('admin.halls.index') }}">図書館一覧</a></li>
+        <li><a href="{{ route('user.index') }}">ユーザー画面へ</a></li>
       </ul>
     </nav>
   </header>

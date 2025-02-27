@@ -2,7 +2,7 @@
   <link rel="stylesheet" href="{{ asset('./css/admin/index.css') }}">
 @endpush
 
-@extends('layouts.layouts')
+@extends('layouts.user.layouts')
 @section('content')
   <section class="content">
     <div class="wrapper">
