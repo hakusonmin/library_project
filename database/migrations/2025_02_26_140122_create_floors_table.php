@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('floors', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->foreignId('hall_id');
+            $table->foreignId('hall_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

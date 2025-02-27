@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255);
             $table->boolean('is_reserved');
-            $table->foreignId('floor_id');
+            $table->foreignId('floor_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
