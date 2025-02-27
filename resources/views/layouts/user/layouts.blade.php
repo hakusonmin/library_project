@@ -19,8 +19,8 @@
       <ul>
         <li><a href="{{ route('user.index') }}"ダッシュボードへ</a></li>
         <li><a href="{{ route('user.halls.index') }}">図書館一覧</a></li>
-        <li><a href="{{ route('user.registrations.index') }}">My登録座席一覧</a></li>
-        <li><a href="{{ route('admin.index') }}">管理画面へ</a></li>
+        <li><a href="{{ route('user.registrations.index') }}">登録座席一覧</a></li>
+        <li><a href="{{ route('admin.index') }}">管理画面</a></li>
       </ul>
     </nav>
   </header>
