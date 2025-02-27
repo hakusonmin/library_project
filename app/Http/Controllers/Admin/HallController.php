@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreHallRequest;
 use App\Models\Hall;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class HallController extends Controller
      */
     public function index()
     {
-        //
+        $halls = Hall::all();
+        return view('web.admin.hall.index', compact('halls'));
     }
 
     /**
@@ -21,15 +23,19 @@ class HallController extends Controller
      */
     public function create()
     {
-        //
+        return view('web.admin.hall.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreHallRequest $request)
     {
-        //
+        $model = new Hall();
+        $model->name = $request->name;
+        $model->save();
+
+        return redirect()->route('admin.halls.index');
     }
 
     /**

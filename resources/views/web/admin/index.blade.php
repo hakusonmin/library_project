@@ -12,35 +12,21 @@
         <div class="card">
           <a href="{{ route('admin.halls.index') }}">
             <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
-            <div class="card-title">「図書館一覧」</div>
-          </a>
-        </div>
-
-        <div class="card">
-          <a href="{{ route('admin.floors.index') }}">
-            <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
-            <div class="card-title">「階一覧」</div>
-          </a>
-        </div>
-
-        <div class="card">
-            <a href="{{ route('admin.sheets.index') }}">
-              <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
-              <div class="card-title">「席一覧」</div>
-            </a>
-          </div>
-
-        <div class="card">
-          <a href="{{ route('admin.halls.index') }}">
-            <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
-            <div class="card-title">「ユーザー一覧」</div>
+            <div class="card-title">図書館一覧</div>
           </a>
         </div>
 
         <div class="card">
           <a href="{{ route('admin.halls.index') }}">
             <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
-            <div class="card-title">「予約一覧」</div>
+            <div class="card-title">ユーザー一覧</div>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="{{ route('admin.halls.index') }}">
+            <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
+            <div class="card-title">予約一覧</div>
           </a>
         </div>
 
