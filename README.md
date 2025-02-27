@@ -20,3 +20,11 @@
 ### パス
 - http://localhost:xxxx/admin 管理者ダッシュボード
 - http://localhost:xxxx/user ユーザーダッシュボード
+
+### データ
+- userアクセス情報：メアド fuga@gmail.com パスワード fugafuga
+- adminアクセス情報：メアド hoge@gmail.com パスワード hogehoge
+
+### 備考
+- ダミーデータは左上の方のサムネイルにしか入っていません
+
