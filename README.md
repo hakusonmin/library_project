@@ -18,8 +18,8 @@
 - `task seed`でシーディング(＝ダミーデータの挿入)ができる
 
 ### パス
-- http://localhost:xxxx/admin 管理者ダッシュボード
-- http://localhost:xxxx/user ユーザーダッシュボード
+- http://localhost:xxxx/admin/ 管理者ダッシュボード
+- http://localhost:xxxx/user/ ユーザーダッシュボード
 
 ### データ
 - userアクセス情報：メアド fuga@gmail.com パスワード fugafuga
