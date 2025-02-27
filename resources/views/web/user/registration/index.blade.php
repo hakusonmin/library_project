@@ -18,6 +18,7 @@
           </div>
           @endforeach
         </div>
+        <button class="back-button" type="button" onclick="location.href='{{ route('user.index') }}'">戻る</button>
     </div>
   </section>
 @endsection
