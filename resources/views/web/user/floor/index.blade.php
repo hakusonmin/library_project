@@ -6,7 +6,7 @@
 @section('content')
   <section class="content">
     <div class="wrapper">
-      <h2 class="wrapper-title">ホール一覧</h2>
+      <h2 class="wrapper-title">階一覧</h2>
       <div class="card-container">
         @foreach ($floors as $floor)
           <div class="card">

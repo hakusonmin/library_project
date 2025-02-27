@@ -1,78 +1,74 @@
-:root{
-    --black :rgb(67,67,67);
-    --light-gray: rgb(233,229,222);
-    --white: rgb(255,255,255);
+:root {
+    --black: rgb(67, 67, 67);
+    --light-gray: rgb(233, 229, 222);
+    --white: rgb(255, 255, 255);
     --font-black: rgb(87, 87, 87);
-  }
+}
 
-  body{
+body {
     background-color: var(--black);
     margin: 0; /*超大事*/
-  }
+}
 
-  .content{
+.content {
     background-color: var(--light-gray);
-    padding: 20px;/*このパディングないとちゃんと動きません*/
-  }
+    padding: 20px; /*このパディングないとちゃんと動きません*/
+}
 
-  .wrapper {
+.wrapper {
     max-width: 960px;
     margin: 3dvw auto 3dvw auto;
     text-align: center;
     padding: 4dvw;
-  }
+}
 
-  .wrapper-title {
+.wrapper-title {
     color: var(--font-black);
     font-size: 28px;
     font-weight: 150;
-  }
+}
 
-  .card-container {
+.card-container {
     display: grid;
-    gap: 1.5dvw;
+    gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  }
+    place-items: center;
+}
 
-  .card {
+.card {
     max-width: 270px;
     margin-top: 30px;
     border: 1px solid rgb(130, 130, 130);
     display: grid;
-    grid-row: span 2;
-    grid-template-rows: subgrid;
-    row-gap: 5px;
     background-color: var(--white);
     box-shadow: 2px 2px 4px var(--black);
-  }
+}
 
-  /* .cardにある.card-titleに対する操作です(複数に当てる倍は,で区切るよ.) */
-  .card .card-title {
+/* .cardにある.card-titleに対する操作です(複数に当てる倍は,で区切るよ.) */
+.card .card-title {
     font-size: 16px;
-    text-align:left;
+    text-align: left;
     color: var(--font-black);
-    margin: 0 30px 0px 14px;
-  }
+    margin: 2px 30px 2px 14px;
+}
 
-  .card .image {
+.card .image {
     box-sizing: border-box;
-    width: 100%;
     aspect-ratio: 5 / 3;
     object-fit: cover;
-  }
+}
 
-  .back-button{
-      width: 8%;
-      margin: 30px auto 20px auto;
-      appearance: none;
-      padding: 8px 16px;
-      font-weight: 150;
-      color: var(--white);
-      background-color: var(--black);
-  }
+.back-button {
+    margin: 30px auto 20px auto;
+    appearance: none;
+    padding: 8px 16px;
+    font-weight: 150;
+    color: var(--white);
+    background-color: var(--black);
+}
 
 .SeatingList {
-  margin: 40px;
-  border-radius: 20px;
-  box-shadow: 2px 2px 4px var(--black);
+    margin: 0.5dvw;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px var(--black);
 }
