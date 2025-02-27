@@ -17,9 +17,9 @@
     </h2>
     <nav>
       <ul>
-        <li><a href="{{ route('admin.index') }}">管理画面へ</a></li>
+        <li><a href="{{ route('admin.index') }}"管理者ダッシュボードへ</a></li>
         <li><a href="{{ route('admin.halls.index') }}'">図書館一覧</a></li>
-        <li><a href="{{ route('admin.registrations.index') }}'">My登録座席一覧</a></li>
+        <li><a href="{{ route('user.index') }}'">ユーザー画面へ</a></li>
       </ul>
     </nav>
   </header>
@@ -28,22 +28,22 @@
 
   @yield('content')
 
-    @if ($errors->any())
+  @if ($errors->any())
 
-      <div class="error">
-        <ul>
-          @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div>
-    @endif
+    <div class="error">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
 
-    @if (session('message'))
-      <div class="message">
-        {{ session('message') }}
-      </div>
-    @endif
+  @if (session('message'))
+    <div class="message">
+      {{ session('message') }}
+    </div>
+  @endif
 
   <div class="line"></div>
 
