@@ -1,0 +1,62 @@
+:root {
+    --black: rgb(67, 67, 67);
+    --light-gray: rgb(233, 229, 222);
+    --white: rgb(255, 255, 255);
+    --font-black: rgb(87, 87, 87);
+}
+
+body {
+    background-color: var(--black);
+    margin: 0; /*超大事*/
+}
+
+.content {
+    background-color: var(--light-gray);
+    padding: 20px; /*このパディングないとちゃんと動きません*/
+}
+
+.wrapper {
+    max-width: 450px;
+    margin: 3dvw auto 3dvw auto;
+    text-align: center;
+    padding: 4dvw;
+    color: var(--font-black);
+}
+
+.wrapper-title {
+    color: var(--font-black);
+    font-size: 28px;
+    font-weight: 150;
+    margin-bottom: 34px;
+}
+
+.form-element-wrapper {
+    margin-bottom: 40px;
+}
+
+.form-element-wrapper-title {
+    text-align: left;
+}
+
+.form-element-wrapper-content {
+    border-bottom: 1px solid rgb(170, 170, 170);
+    margin: 20px auto 20px auto;
+}
+
+.jump-button {
+    margin: 30px auto 20px auto;
+    appearance: none;
+    padding: 8px 16px;
+    font-weight: 150;
+    color: var(--white);
+    background-color: var(--black);
+}
+
+.back-button {
+    margin: 30px auto 20px auto;
+    appearance: none;
+    padding: 8px 16px;
+    font-weight: 150;
+    color: var(--white);
+    background-color: var(--black);
+}
