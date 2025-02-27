@@ -9,4 +9,9 @@ class Sheet extends Model
 {
     /** @use HasFactory<\Database\Factories\SheetFactory> */
     use HasFactory;
+
+    public function floor()
+    {
+        return $this->belongsTo(Floor::class);
+    }
 }

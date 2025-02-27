@@ -14,7 +14,9 @@ class SheetController extends Controller
     public function index(Request $request)
     {
         $floor_id = $request->query('floor_id');
-        $sheets = Sheet::where('floor_id', $floor_id)->get();
+        $sheets = Sheet::where('floor_id', $floor_id)
+            ->where('is_reserved', 0)
+            ->get();
         return view('web.user.sheet.index', compact('sheets'));
     }
 
