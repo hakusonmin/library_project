@@ -2,7 +2,7 @@
   <link rel="stylesheet" href="{{ asset('./css/user/hall/index.css') }}">
 @endpush
 
-@extends('layouts.layouts')
+@extends('layouts.admin.layouts')
 @section('content')
   <section class="content">
     <div class="wrapper">

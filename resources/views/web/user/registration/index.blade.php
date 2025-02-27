@@ -3,7 +3,7 @@
 @endpush
 
 
-@extends('layouts.layouts')
+@extends('layouts.admin.layouts')
 @section('content')
   <section class="content">
     <div class="wrapper">
