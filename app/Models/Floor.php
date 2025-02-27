@@ -9,4 +9,9 @@ class Floor extends Model
 {
     /** @use HasFactory<\Database\Factories\FloorFactory> */
     use HasFactory;
+
+    public function hall()
+    {
+        return $this->belongsTo(Hall::class);
+    }
 }
