@@ -13,7 +13,7 @@
       <div class="card-container">
         @foreach ($sheets as $sheet)
           <div class="card">
-            <a href="{{ route('admin.registrations.index', ['sheet' => $sheet->id]) }}">
+            <a>
               <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
               <div class="card-title">{{ $sheet->name }}</div>
             </a>
