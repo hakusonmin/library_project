@@ -36,7 +36,12 @@ class HallController extends Controller
         $model->name = $request->name;
         $model->save();
 
-        return redirect()->route('admin.halls.index');
+        return redirect()
+        ->route('admin.halls.index')            
+        ->with([
+            'message' => '階を登録しました',
+            'status' => 'info'
+        ]);
     }
 
     /**

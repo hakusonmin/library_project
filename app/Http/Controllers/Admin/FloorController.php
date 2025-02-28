@@ -12,9 +12,9 @@ class FloorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(string $hall_id)
+    public function index(string $hall)
     {
-        $hall_id = $hall_id;
+        $hall_id = $hall;
         $floors = Floor::where('hall_id', $hall_id)->get();
         return view('web.admin.floor.index', compact('floors','hall_id'));
     }
@@ -22,15 +22,16 @@ class FloorController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($hall)
     {
-        return view('web.admin.floor.create');
+        $hall_id = $hall;
+        return view('web.admin.floor.create',compact('hall_id'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFloorRequest $request,string $hall_id)
+    public function store(StoreFloorRequest $request, string $hall_id)
     {
         $model = new Floor();
         $model->name = $request->name;
@@ -38,7 +39,7 @@ class FloorController extends Controller
         $model->save();
 
         return redirect()
-            ->route('admin.floors.index')
+            ->route('admin.floors.index', ['hall' => $hall_id])
             ->with([
                 'message' => '階を登録しました',
                 'status' => 'info'
