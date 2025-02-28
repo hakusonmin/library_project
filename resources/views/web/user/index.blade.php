@@ -19,7 +19,7 @@
         <div class="card">
           <a href="{{ route('user.halls.index') }}">
             <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
-            <div class="card-title">My予約一覧</div>
+            <div class="card-title">My登録一覧</div>
           </a>
         </div>
 

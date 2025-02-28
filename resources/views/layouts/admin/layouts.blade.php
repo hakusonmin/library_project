@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>映画購入サイト</title>
+  <title>図書館登録サイト</title>
   <link rel="stylesheet" href="{{ asset('./css/layouts/layouts.css') }}">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   @stack('styles')
@@ -17,9 +17,9 @@
     </h2>
     <nav>
       <ul>
-        <li><a href="{{ route('admin.index') }}"管理者ダッシュボードへ</a></li>
-        <li><a href="{{ route('admin.halls.index') }}">図書館一覧</a></li>
-        <li><a href="{{ route('user.index') }}">ユーザー画面へ</a></li>
+        <li><a href="{{ route('admin.register') }}">新規登録</a></li>
+        <li><a href="{{ route('admin.profile.edit') }}">プロフィール</a></li>
+        <li><a href="{{ route('admin.index') }}">管理者ダッシュボード</a></li>
       </ul>
     </nav>
   </header>
