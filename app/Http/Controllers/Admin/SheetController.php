@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSheetRequest;
+use App\Http\Requests\UpdateSheetRequest;
 use App\Models\Sheet;
 use Illuminate\Http\Request;
 
@@ -57,17 +58,30 @@ class SheetController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sheet $sheet)
+    public function edit(string $id, string $floor)
     {
-        //
+        $floor_id = $floor;
+        $sheet = Sheet::findOrFail($id);
+        return view('web.admin.sheet.edit', compact('sheet', 'floor_id'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sheet $sheet)
+    public function update(UpdateSheetRequest $request, string $id, string $floor)
     {
-        //
+        $floor_id = $floor;
+        $model = Sheet::find($id);
+        $model->name = $request->name;
+        $model->floor_id = $floor_id;
+        $model->save();
+
+        return redirect()
+            ->route('admin.sheets.index', ['floor' => $floor_id])
+            ->with([
+                'message' => '席情報を変更しました',
+                'status' => 'info'
+            ]);
     }
 
     /**

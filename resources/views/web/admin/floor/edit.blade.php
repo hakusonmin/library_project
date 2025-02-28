@@ -7,12 +7,12 @@
   <section class="content">
     <section class="my-wrapper">
       <div class="wrapper">
-        <h2 class="wrapper-title"">図書館情報登録</h2>
+        <h2 class="wrapper-title"">階情報登録</h2>
         <form action="{{ route('admin.floors.update', ['floor' => $floor->id, 'hall' => $hall_id]) }}" method="POST">
           @csrf
           @method('PATCH')
           <div class="form-element-wrapper">
-            <div class="form-element-wrapper-title"><label for="name">図書館名</label></div>
+            <div class="form-element-wrapper-title"><label for="name">階名</label></div>
             <div class="form-element-wrapper-content"><input type="text" id="name" name="name" value="{{ old('name', $floor->name) }}" required></div>
           </div>
           <button class="jump-button" type="submit">送信</button>
