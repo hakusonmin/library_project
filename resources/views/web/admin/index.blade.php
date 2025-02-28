@@ -23,7 +23,7 @@
         </div>
 
         <div class="card">
-          <a href="{{ route('admin.halls.index') }}">
+          <a href="{{ route('admin.registrations.index') }}">
             <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
             <div class="card-title">登録一覧</div>
           </a>

@@ -19,4 +19,9 @@ class Registration extends Model
     {
         return $this->belongsTo(Sheet::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

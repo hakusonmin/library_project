@@ -13,7 +13,9 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        //
+        $registrations = Registration::with(['sheet.floor.hall', 'user'])
+            ->get();
+        return view('web.admin.registration.index', compact('registrations'));
     }
 
     /**
