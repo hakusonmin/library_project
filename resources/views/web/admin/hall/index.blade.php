@@ -1,5 +1,5 @@
 @push('styles')
-  <link rel="stylesheet" href="{{ asset('./css/user/hall/index.css') }}">
+  <link rel="stylesheet" href="{{ asset('./css/admin/hall/index.css') }}">
 @endpush
 
 @extends('layouts.user.layouts')
@@ -14,6 +14,10 @@
               <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
               <div class="card-title">{{ $hall->name }}</div>
             </a>
+            <div class="mutation-link-wrapper">
+              <a class="mutation-link" href="{{ route('admin.halls.create') }}">編集</a>
+              <a class="mutation-link" href="{{ route('admin.halls.create') }}">削除</a>
+            </div>
           </div>
         @endforeach
       </div>

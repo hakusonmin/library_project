@@ -60,6 +60,20 @@
     object-fit: cover;
   }
 
+  .mutation-link-wrapper {
+    text-align: right;
+  }
+
+  .mutation-link {
+    display:inline-block;
+    color: var(--white);
+    background-color: var(--black);
+    margin: 0 7px 3px 0px;
+    padding: 3px 6px 3px 6px;
+    font-weight: 80;
+    font-size: 13px;
+  }
+
   .back-button{
       margin: 30px auto 20px auto;
       appearance: none;
@@ -68,3 +82,5 @@
       color: var(--white);
       background-color: var(--black);
   }
+
+
