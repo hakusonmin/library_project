@@ -1,0 +1,88 @@
+:root {
+    --black: rgb(67, 67, 67);
+    --light-gray: rgb(233, 229, 222);
+    --white: rgb(255, 255, 255);
+    --font-black: rgb(87, 87, 87);
+}
+
+body {
+    background-color: var(--black);
+    margin: 0; /*超大事*/
+}
+
+.content {
+    background-color: var(--light-gray);
+    padding: 20px; /*このパディングないとちゃんと動きません*/
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 3dvw auto 3dvw auto;
+    text-align: center;
+    padding: 4dvw;
+}
+
+.wrapper-title {
+    color: var(--font-black);
+    font-size: 28px;
+    font-weight: 150;
+}
+
+.card-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    place-items: center;
+}
+
+.card {
+    max-width: 270px;
+    margin-top: 30px;
+    border: 1px solid rgb(130, 130, 130);
+    display: grid;
+    background-color: var(--white);
+    box-shadow: 2px 2px 4px var(--black);
+}
+
+/* .cardにある.card-titleに対する操作です(複数に当てる倍は,で区切るよ.) */
+.card .card-title {
+    font-size: 16px;
+    text-align: left;
+    color: var(--font-black);
+    margin: 2px 30px 2px 14px;
+}
+
+.card .image {
+    box-sizing: border-box;
+    aspect-ratio: 5 / 3;
+    object-fit: cover;
+}
+
+.mutation-link-wrapper {
+    text-align: right;
+}
+
+.mutation-link {
+    display: inline-block;
+    color: var(--white);
+    background-color: var(--black);
+    margin: 0 0px 1px 0px;
+    padding: 3px 6px 3px 6px;
+    font-weight: 80;
+    font-size: 10px;
+}
+
+.back-button {
+    margin: 30px auto 20px auto;
+    appearance: none;
+    padding: 8px 16px;
+    font-weight: 150;
+    color: var(--white);
+    background-color: var(--black);
+}
+
+.SeatingList {
+    margin: 0.5dvw;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px var(--black);
+}

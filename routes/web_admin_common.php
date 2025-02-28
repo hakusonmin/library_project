@@ -26,6 +26,10 @@ Route::prefix('admin')
             Route::resource('sheets', SheetController::class);
         });
 
-        Route::resource('registrations', RegistrationController::class);
+        Route::prefix('sheets/{sheet}')->group(function () {
+            Route::resource('registrations', RegistrationController::class);
+        });
+
+
         Route::resource('users', UserController::class);
     });
