@@ -87,8 +87,13 @@ class SheetController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sheet $sheet)
+    public function destroy(string $id, string $floor)
     {
-        //
+        $floor_id = $floor;
+        $model = Sheet::findOrFail($id);
+        $model->delete();
+        return redirect()
+            ->route('admin.sheets.index', ['floor' => $floor_id])
+            ->with('message', '席情報を削除しました');
     }
 }
