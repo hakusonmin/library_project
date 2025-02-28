@@ -37,9 +37,9 @@ class HallController extends Controller
         $model->save();
 
         return redirect()
-        ->route('admin.halls.index')            
+        ->route('admin.halls.index')
         ->with([
-            'message' => '階を登録しました',
+            'message' => '図書館情報を登録しました',
             'status' => 'info'
         ]);
     }
@@ -70,7 +70,12 @@ class HallController extends Controller
         $model->name = $request->name;
         $model->save();
 
-        return redirect()->route('admin.halls.index');
+        return redirect()
+        ->route('admin.halls.index')
+        ->with([
+            'message' => '図書館情報を変更しました',
+            'status' => 'info'
+        ]);
     }
 
     /**
@@ -81,6 +86,6 @@ class HallController extends Controller
         $model = Hall::findOrFail($id);
         $model->delete();
         return redirect()->route('admin.halls.index')
-            ->with('message', '削除に成功しました');;
+            ->with('message', '図書館情報を削除しました');;
     }
 }
