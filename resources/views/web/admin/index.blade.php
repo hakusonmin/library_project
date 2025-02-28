@@ -16,7 +16,7 @@
         </div>
 
         <div class="card">
-          <a href="{{ route('admin.halls.index') }}">
+          <a href="{{ route('admin.users.index') }}">
             <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
             <div class="card-title">ユーザー一覧</div>
           </a>
