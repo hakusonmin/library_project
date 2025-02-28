@@ -19,7 +19,7 @@
       <ul>
         <li><a href="{{ route('admin.register') }}">新規登録</a></li>
         <li><a href="{{ route('admin.profile.edit') }}">プロフィール</a></li>
-        <li><a href="{{ route('admin.index') }}">管理者ダッシュボード</a></li>
+        <li><a href="{{ route('admin.index') }}">管理者ホーム</a></li>
       </ul>
     </nav>
   </header>

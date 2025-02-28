@@ -6,7 +6,7 @@
 @section('content')
   <section class="content">
     <div class="wrapper">
-      <h2 class="wrapper-title">管理者ルートページ</h2>
+      <h2 class="wrapper-title">管理者ホーム</h2>
       <div class="card-container">
         <div class="card">
           <a href="{{ route('admin.halls.index') }}">

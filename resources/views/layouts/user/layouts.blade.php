@@ -19,7 +19,7 @@
       <ul>
         <li><a href="{{ route('user.register') }}">新規登録</a></li>
         <li><a href="{{ route('user.profile.edit') }}">プロフィール</a></li>
-        <li><a href="{{ route('user.registrations.index') }}">登録座席一覧</a></li>
+        <li><a href="{{ route('user.index') }}">ユーザーホーム</a></li>
       </ul>
     </nav>
   </header>

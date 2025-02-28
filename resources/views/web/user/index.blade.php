@@ -6,7 +6,7 @@
 @section('content')
   <section class="content">
     <div class="wrapper">
-      <h2 class="wrapper-title">ユーザールートページ</h2>
+      <h2 class="wrapper-title">ユーザーホーム</h2>
       <div class="card-container">
 
         <div class="card">
