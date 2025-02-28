@@ -11,7 +11,7 @@ class SheetController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(string $floor_id)
     {
         //
     }

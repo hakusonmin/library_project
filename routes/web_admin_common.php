@@ -13,12 +13,19 @@ Route::prefix('admin')
 
         //管理者ダッシュボードへのルーティング
         Route::get('/', function () {
-            return view('web.admin.index'); 
+            return view('web.admin.index');
         })->name('index');
 
-        Route::resource('floors', FloorController::class);
         Route::resource('halls', HallController::class);
-        Route::resource('sheets', SheetController::class);
+
+        Route::prefix('halls/{hall}')->group(function () {
+            Route::resource('floors', FloorController::class);
+        });
+
+        Route::prefix('floors/{floor}')->group(function () {
+            Route::resource('sheets', SheetController::class);
+        });
+
         Route::resource('registrations', RegistrationController::class);
         Route::resource('users', UserController::class);
     });
