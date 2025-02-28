@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFloorRequest;
+use App\Http\Requests\UpdateHallRequest;
 use App\Models\Floor;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class FloorController extends Controller
     {
         $hall_id = $hall;
         $floors = Floor::where('hall_id', $hall_id)->get();
-        return view('web.admin.floor.index', compact('floors','hall_id'));
+        return view('web.admin.floor.index', compact('floors', 'hall_id'));
     }
 
     /**
@@ -25,7 +26,7 @@ class FloorController extends Controller
     public function create(string $hall)
     {
         $hall_id = $hall;
-        return view('web.admin.floor.create',compact('hall_id'));
+        return view('web.admin.floor.create', compact('hall_id'));
     }
 
     /**
@@ -67,7 +68,7 @@ class FloorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id, string $hall)
+    public function update(UpdateHallRequest $request, string $id, string $hall)
     {
         $hall_id = $hall;
         $model = Floor::find($id);
@@ -76,18 +77,23 @@ class FloorController extends Controller
         $model->save();
 
         return redirect()
-        ->route('admin.floors.index', ['hall' => $hall_id])
-        ->with([
-            'message' => '階情報を変更しました',
-            'status' => 'info'
-        ]);
+            ->route('admin.floors.index', ['hall' => $hall_id])
+            ->with([
+                'message' => '階情報を変更しました',
+                'status' => 'info'
+            ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Floor $floor)
+    public function destroy(string $id, string $hall)
     {
-        //
+        $hall_id = $hall;
+        $model = Floor::findOrFail($id);
+        $model->delete();
+        return redirect()
+            ->route('admin.floors.index', ['hall' => $hall_id])
+            ->with('message', '階情報を削除しました');
     }
 }

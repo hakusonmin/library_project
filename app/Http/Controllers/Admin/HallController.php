@@ -86,6 +86,6 @@ class HallController extends Controller
         $model = Hall::findOrFail($id);
         $model->delete();
         return redirect()->route('admin.halls.index')
-            ->with('message', '図書館情報を削除しました');;
+            ->with('message', '図書館情報を削除しました');
     }
 }
