@@ -10,13 +10,19 @@
       <div class="card-container">
         @foreach ($halls as $hall)
           <div class="card">
-            <a href="{{ route('user.floors.index', ['hall_id' => $hall->id]) }}">
+            <a href="{{ route('admin.floors.index', ['hall_id' => $hall->id]) }}">
               <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
               <div class="card-title">{{ $hall->name }}</div>
             </a>
             <div class="mutation-link-wrapper">
-              <a class="mutation-link" href="{{ route('admin.halls.create') }}">編集</a>
-              <a class="mutation-link" href="{{ route('admin.halls.create') }}">削除</a>
+              <a class="mutation-link" href="{{ route('admin.halls.edit', ['hall' => $hall->id]) }}">編集</a>
+              <form action="{{ route('admin.halls.destroy', ['hall' => $hall->id]) }}" method="POST" style="display: inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="mutation-link" onclick="return confirm('本当に削除しますか？');">
+                    削除
+                </button>
+            </form>
             </div>
           </div>
         @endforeach
