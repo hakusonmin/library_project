@@ -19,9 +19,7 @@
               <form action="{{ route('admin.halls.destroy', ['hall' => $hall->id]) }}" method="POST" style="display: inline;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="mutation-link" onclick="return confirm('本当に削除しますか？');">
-                    削除
-                </button>
+                <button type="submit" class="mutation-link" onclick="return confirm('本当に削除しますか？');">削除</button>
             </form>
             </div>
           </div>
