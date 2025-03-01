@@ -15,8 +15,8 @@
               <div class="card-title">{{ $floor->name }}</div>
             </a>
             <div class="mutation-link-wrapper">
-              <a class="mutation-link" href="{{ route('admin.floors.edit', ['hall' => $floor->hall_id, 'floor' => $floor->id]) }}">編集</a>
-              <form action="{{ route('admin.floors.destroy', ['hall' => $floor->hall_id, 'floor' => $floor->id]) }}" method="POST" style="display: inline;">
+              <a class="mutation-link" href="{{ route('admin.floors.edit', ['hall' => $hall_id, 'floor' => $floor->id]) }}">編集</a>
+              <form action="{{ route('admin.floors.destroy', ['hall' => $hall_id, 'floor' => $floor->id]) }}" method="POST" style="display: inline;">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="mutation-link" onclick="return confirm('本当に削除しますか？');">削除</button>
