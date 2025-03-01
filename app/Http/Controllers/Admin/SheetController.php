@@ -6,41 +6,49 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSheetRequest;
 use App\Http\Requests\UpdateSheetRequest;
 use App\Models\Sheet;
-use Illuminate\Http\Request;
 
 class SheetController extends Controller
 {
+    protected $floor_id;
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->floor_id = $request->route('floor');
+            $request->merge(['floor_id' => $this->floor_id]);
+            view()->share('floor_id', $this->floor_id);
+            return $next($request);
+        });
+    }
     /**
      * Display a listing of the resource.
      */
-    public function index(string $floor)
+    public function index()
     {
-        $floor_id = $floor;
-        $sheets = Sheet::where('floor_id', $floor_id)->get();
-        return view('web.admin.sheet.index', compact('sheets', 'floor_id'));
+        $sheets = Sheet::where('floor_id', $this->floor_id)->get();
+        return view('web.admin.sheet.index', compact('sheets'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(string $floor)
+    public function create()
     {
-        $floor_id = $floor;
-        return view('web.admin.sheet.create', compact('floor_id'));
+        return view('web.admin.sheet.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSheetRequest $request, string $floor_id)
+    public function store(StoreSheetRequest $request)
     {
         $model = new Sheet();
         $model->name = $request->name;
-        $model->floor_id = $floor_id;
+        $model->floor_id = $this->floor_id;
         $model->save();
 
         return redirect()
-            ->route('admin.sheets.index', ['floor' => $floor_id])
+            ->route('admin.sheets.index', ['floor' => $this->floor_id])
             ->with([
                 'message' => '座席情報を登録しました',
                 'status' => 'info'
@@ -58,26 +66,24 @@ class SheetController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id, string $floor)
+    public function edit(string $id)
     {
-        $floor_id = $floor;
         $sheet = Sheet::findOrFail($id);
-        return view('web.admin.sheet.edit', compact('sheet', 'floor_id'));
+        return view('web.admin.sheet.edit', compact('sheet'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSheetRequest $request, string $id, string $floor)
+    public function update(UpdateSheetRequest $request, string $id)
     {
-        $floor_id = $floor;
         $model = Sheet::find($id);
         $model->name = $request->name;
-        $model->floor_id = $floor_id;
+        $model->floor_id = $this->floor_id;
         $model->save();
 
         return redirect()
-            ->route('admin.sheets.index', ['floor' => $floor_id])
+            ->route('admin.sheets.index', ['floor' => $this->floor_id])
             ->with([
                 'message' => '席情報を変更しました',
                 'status' => 'info'
@@ -87,13 +93,12 @@ class SheetController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id, string $floor)
+    public function destroy(string $id)
     {
-        $floor_id = $floor;
         $model = Sheet::findOrFail($id);
         $model->delete();
         return redirect()
-            ->route('admin.sheets.index', ['floor' => $floor_id])
+            ->route('admin.sheets.index', ['floor' => $this->floor_id])
             ->with('message', '席情報を削除しました');
     }
 }
