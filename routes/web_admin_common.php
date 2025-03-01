@@ -18,6 +18,7 @@ Route::prefix('admin')
 
         Route::resource('halls', HallController::class);
 
+        //↓ポイント：別に名前付きrouteにまで[hall]をつける必要はないよ..
         Route::prefix('halls/{hall}')->group(function () {
             Route::resource('floors', FloorController::class);
         });
