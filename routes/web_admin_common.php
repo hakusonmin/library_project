@@ -20,11 +20,13 @@ Route::prefix('admin')
 
         //↓ポイント：別に名前付きrouteにまで[hall]をつける必要はないよ..
         Route::prefix('halls/{hall}')->group(function () {
-            Route::resource('floors', FloorController::class);
+            Route::resource('floors', FloorController::class)
+                ->scopeBindings();
         });
 
         Route::prefix('floors/{floor}')->group(function () {
-            Route::resource('sheets', SheetController::class);
+            Route::resource('sheets', SheetController::class)
+                ->scopeBindings();
         });
 
         Route::resource('registrations', RegistrationController::class);
