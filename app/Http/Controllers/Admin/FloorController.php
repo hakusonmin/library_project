@@ -64,7 +64,7 @@ class FloorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateHallRequest $request, string $id, string $hall)
+    public function update(UpdateHallRequest $request, string $hall ,string $id)
     {
         $model = Floor::find($id);
         $model->name = $request->name;
@@ -82,7 +82,7 @@ class FloorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id, string $hall)
+    public function destroy(string $hall, string $id)
     {
         $model = Floor::findOrFail($id);
         $model->delete();
