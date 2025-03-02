@@ -61,9 +61,9 @@ class RegistrationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Registration $registration)
     {
-        $model = Registration::findOrFail($id);
+        $model = $registration;
         $model->delete();
         return redirect()->route('admin.registrations.index')
             ->with('message', '登録情報を削除しました');

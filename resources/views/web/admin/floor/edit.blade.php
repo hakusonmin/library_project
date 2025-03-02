@@ -16,7 +16,7 @@
             <div class="form-element-wrapper-content"><input type="text" id="name" name="name" value="{{ old('name', $floor->name) }}" required></div>
           </div>
           <button class="jump-button" type="submit">送信</button>
-          <button class="back-button" type="button" onclick="location.href='{{ route('admin.floors.index',['hall' => $hall]) }}'">戻る</button>
+          <button class="back-button" type="button" onclick="location.href='{{ route('admin.floors.index',['hall' => $hall->id]) }}'">戻る</button>
         </form>
       </div>
     </section>

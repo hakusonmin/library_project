@@ -55,18 +55,17 @@ class HallController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Hall $hall)
     {
-        $hall = Hall::findOrFail($id);
         return view('web.admin.hall.edit', compact('hall'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateHallRequest $request, string $id)
+    public function update(UpdateHallRequest $request, Hall $hall)
     {
-        $model = Hall::find($id);
+        $model = $hall;
         $model->name = $request->name;
         $model->save();
 
@@ -81,9 +80,9 @@ class HallController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Hall $hall)
     {
-        $model = Hall::findOrFail($id);
+        $model = $hall;
         $model->delete();
         return redirect()->route('admin.halls.index')
             ->with('message', '図書館情報を削除しました');

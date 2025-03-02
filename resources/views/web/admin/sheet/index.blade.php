@@ -28,7 +28,7 @@
           </div>
         @endforeach
       </div>
-      <button class="back-button" type="button" onclick="location.href='{{ route('admin.sheets.create', ['floor' => $floor_id ]) }}'">新規作成</button>
+      <button class="back-button" type="button" onclick="location.href='{{ route('admin.sheets.create', ['floor' => $floor->id ]) }}'">新規作成</button>
       <button class="back-button" type="button" onClick="history.back();">戻る</button>
     </div>
   </section>
