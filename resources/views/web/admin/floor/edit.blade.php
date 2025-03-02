@@ -8,7 +8,7 @@
     <section class="my-wrapper">
       <div class="wrapper">
         <h2 class="wrapper-title"">階情報登録</h2>
-        <form action="{{ route('admin.floors.update', ['floor' => $floor->id, 'hall' => $hall_id]) }}" method="POST">
+        <form action="{{ route('admin.floors.update', ['floor' => $floor->id, 'hall' => $hall]) }}" method="POST">
           @csrf
           @method('PATCH')
           <div class="form-element-wrapper">
@@ -16,7 +16,7 @@
             <div class="form-element-wrapper-content"><input type="text" id="name" name="name" value="{{ old('name', $floor->name) }}" required></div>
           </div>
           <button class="jump-button" type="submit">送信</button>
-          <button class="back-button" type="button" onclick="location.href='{{ route('admin.floors.index',['hall' => $hall_id]) }}'">戻る</button>
+          <button class="back-button" type="button" onclick="location.href='{{ route('admin.floors.index',['hall' => $hall]) }}'">戻る</button>
         </form>
       </div>
     </section>

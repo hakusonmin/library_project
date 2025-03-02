@@ -9,47 +9,35 @@ use App\Models\Floor;
 
 class FloorController extends Controller
 {
-    protected $hall_id;
-
-    public function __construct()
-    {
-        $this->middleware(function ($request, $next) {
-            $this->hall_id = $request->route('hall');
-            $request->merge(['hall_id' => $this->hall_id]);
-            view()->share('hall_id', $this->hall_id);
-            return $next($request);
-        });
-    }
-
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(string $hall)
     {
-        $floors = Floor::where('hall_id', $this->hall_id)->get();
-        return view('web.admin.floor.index', compact('floors'));
+        $floors = Floor::where('hall_id', $hall)->get();
+        return view('web.admin.floor.index', compact('floors', 'hall'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(string $hall)
     {
-        return view('web.admin.floor.create');
+        return view('web.admin.floor.create', compact('hall'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFloorRequest $request)
+    public function store(StoreFloorRequest $request, string $hall)
     {
         $model = new Floor();
         $model->name = $request->name;
-        $model->hall_id = $this->hall_id;
+        $model->hall_id = $hall;
         $model->save();
 
         return redirect()
-            ->route('admin.floors.index' ,['hall' => $this->hall_id])
+            ->route('admin.floors.index', ['hall' => $hall])
             ->with([
                 'message' => '階情報を登録しました',
                 'status' => 'info'
@@ -67,24 +55,24 @@ class FloorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $hall, string $id)
     {
         $floor = Floor::findOrFail($id);
-        return view('web.admin.floor.edit', compact('floor'));
+        return view('web.admin.floor.edit', compact('floor', 'hall'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateHallRequest $request, string $id)
+    public function update(UpdateHallRequest $request, string $id, string $hall)
     {
         $model = Floor::find($id);
         $model->name = $request->name;
-        $model->hall_id = $this->hall_id;
+        $model->hall_id = $hall;
         $model->save();
 
         return redirect()
-            ->route('admin.floors.index')
+            ->route('admin.floors.index', ['hall' => $hall])
             ->with([
                 'message' => '階情報を変更しました',
                 'status' => 'info'
@@ -94,12 +82,12 @@ class FloorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id, string $hall)
     {
         $model = Floor::findOrFail($id);
         $model->delete();
         return redirect()
-            ->route('admin.floors.index')
+            ->route('admin.floors.index', ['hall' => $hall])
             ->with('message', '階情報を削除しました');
     }
 }
