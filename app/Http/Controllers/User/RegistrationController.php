@@ -72,10 +72,10 @@ class RegistrationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Registration $registration)
     {
         $registration = Registration::with('sheet.floor.hall')
-            ->find($id);
+            ->find($registration->id);
 
         return view('web.user.registration.show', compact('registration'));
     }
@@ -99,16 +99,17 @@ class RegistrationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Registration $registration)
     {
+        $this->authorize('destroy', $registration);
         try {
-            DB::transaction(function () use ($id) {
+            DB::transaction(function () use ($registration) {
 
-                $registration = Registration::find($id);
+                $registration = Registration::find($registration->id);
                 $sheet_id = $registration->sheet_id;
                 Sheet::where('id', $sheet_id)->update(['is_reserved' => 0]);
                 //↓先に上の処理を行う(先にdelete行うと上記のfindのメソッドを使ってもそもそものデータをさっき消してしまったのでエラーが出る)
-                Registration::where('id', $id)
+                Registration::where('id', $registration->id)
                     ->delete();
             });
         } catch (Throwable $e) {

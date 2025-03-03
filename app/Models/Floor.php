@@ -14,4 +14,9 @@ class Floor extends Model
     {
         return $this->belongsTo(Hall::class);
     }
+
+    function sheets()
+    {
+        return $this->hasMany(Sheet::class);
+    }
 }

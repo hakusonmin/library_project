@@ -19,14 +19,12 @@ Route::prefix('admin')
         Route::resource('halls', HallController::class);
 
         //↓ポイント：別に名前付きrouteにまで[hall]をつける必要はないよ..
-        Route::prefix('halls/{hall}')->group(function () {
-            Route::resource('floors', FloorController::class)
-                ->scopeBindings();
+        Route::prefix('halls/{hall}')->scopeBindings()->group(function () {
+            Route::resource('floors', FloorController::class);
         });
 
-        Route::prefix('floors/{floor}')->group(function () {
-            Route::resource('sheets', SheetController::class)
-                ->scopeBindings();
+        Route::prefix('floors/{floor}')->scopeBindings()->group(function () {
+            Route::resource('sheets', SheetController::class);
         });
 
         Route::resource('registrations', RegistrationController::class);
