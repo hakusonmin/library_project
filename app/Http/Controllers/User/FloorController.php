@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Floor;
+use App\Models\Hall;
 use Illuminate\Http\Request;
 
 class FloorController extends Controller
@@ -11,12 +12,12 @@ class FloorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(Hall $hall)
     {
-        $hall_id = $request->query('hall_id');
-        $floors = Floor::where('hall_id', $hall_id)->get();
-        return view('web.user.floor.index', compact('floors'));
+        $floors = Floor::where('hall_id', $hall->id)->get();
+        return view('web.user.floor.index', compact('floors', 'hall'));
     }
+
 
     /**
      * Show the form for creating a new resource.

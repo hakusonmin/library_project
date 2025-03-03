@@ -101,7 +101,6 @@ class RegistrationController extends Controller
      */
     public function destroy(Registration $registration)
     {
-        $this->authorize('destroy', $registration);
         try {
             DB::transaction(function () use ($registration) {
 

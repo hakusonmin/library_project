@@ -10,7 +10,7 @@
       <div class="card-container">
         @foreach ($floors as $floor)
           <div class="card">
-            <a href="{{ route('user.sheets.index', ['floor_id' => $floor->id]) }}">
+            <a href="{{ route('user.sheets.index', ['floor' => $floor->id]) }}">
               <img class="image" src="{{ asset('./images/Thumbnail.png') }}">
               <div class="card-title">{{ $floor->name }}</div>
             </a>

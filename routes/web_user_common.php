@@ -15,8 +15,15 @@ Route::prefix('user')
             return view('web.user.index');
         })->name('index');
 
-        Route::resource('floors', FloorController::class);
         Route::resource('halls', HallController::class);
-        Route::resource('sheets', SheetController::class);
+
+        Route::prefix('halls/{hall}')->scopeBindings()->group(function () {
+            Route::resource('floors', FloorController::class);
+        });
+
+        Route::prefix('floors/{floor}')->scopeBindings()->group(function () {
+            Route::resource('sheets', SheetController::class);
+        });
+
         Route::resource('registrations', RegistrationController::class);
     });

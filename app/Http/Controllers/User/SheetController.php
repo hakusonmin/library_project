@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Floor;
 use App\Models\Sheet;
 use Illuminate\Http\Request;
 
@@ -11,10 +12,9 @@ class SheetController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(Floor $floor, Sheet $sheet)
     {
-        $floor_id = $request->query('floor_id');
-        $sheets = Sheet::where('floor_id', $floor_id)
+        $sheets = Sheet::where('floor_id', $floor->id)
             ->where('is_reserved', 0)
             ->get();
         return view('web.user.sheet.index', compact('sheets'));
