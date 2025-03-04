@@ -74,6 +74,8 @@ class RegistrationController extends Controller
      */
     public function show(Registration $registration)
     {
+        $this->authorize('view', $registration);
+
         $registration = Registration::with('sheet.floor.hall')
             ->find($registration->id);
 
@@ -101,6 +103,8 @@ class RegistrationController extends Controller
      */
     public function destroy(Registration $registration)
     {
+        $this->authorize('destroy', $registration);
+
         try {
             DB::transaction(function () use ($registration) {
 
