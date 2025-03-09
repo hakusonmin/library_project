@@ -15,8 +15,10 @@ Route::prefix('user')
             return view('web.user.index');
         })->name('index');
 
+        //ここでfloorを呼べばネストするひつようなんてない
         Route::resource('halls', HallController::class);
 
+        //ここでSheetを呼べばネストする必要がない
         Route::prefix('halls/{hall}')->scopeBindings()->group(function () {
             Route::resource('floors', FloorController::class);
         });
